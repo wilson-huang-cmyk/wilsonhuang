@@ -60,7 +60,7 @@ const timelineData: TimelineEvent[] = [
             heroImage: resilead,
             problem: 'Young entrepreneurs, especially in developing or post-conflict regions, face insurmountable barriers to accessing capital, mentorship, and global platforms to scale their ventures.',
             solution: 'Resilead provides accessible microloans and need-based financing through a structured support system. We established the COLLABOR8 Framework for advocacy and education, and as a founding partner with the UN Department of Peacekeeping Operations, we amplify youth voices from war-torn regions at major UN forums.',
-            myRole: 'As Founder and CEO, I drove the strategic vision, from establishing partnerships with 6+ international organizations to leading fundraising and program design. I assisted a collaboration with the UN DPO, raising over $5,000 for youth representation, and launched the South Sudan Women\'s Economic Empowerment Microgrant Program to provide capital and training to female entrepreneurs.',
+            myRole: 'As Founder and CEO, I drove the strategic vision, from establishing partnerships with 6+ international organizations to leading fundraising and program design. I additionally collaborated with the UN DPO, raising over $5,000 for youth representation, and assisted in launching the South Sudan Women’s Economic Empowerment Microgrant Program to provide capital and training to female entrepreneurs.',
             outcomes: [
                 'Empowered over 1,100 young leaders across 35+ countries.',
                 'Recognized by the UN DPO as the South Sudan’s first high-school-led business incubator program.',
