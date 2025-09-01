@@ -9,7 +9,7 @@ import risevan2024 from '../assets/risevan2024.png';
 import risedalian2024 from '../assets/risedalian2024.png';
 import risetoc2024 from '../assets/risetoc2024.png';
 import risevan2025 from '../assets/risevan2025.png';
-import riseLjubljana2025 from '../assets/riseLjubljana2025.png';
+import riseLjubljana2025 from '../assets/riseljubljana2025.png';
 
 
 // Exporting the type so other components can use it
