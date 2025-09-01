@@ -77,9 +77,25 @@ body {
   line-height: 1.6;
   font-size: 1.1rem;
 }
-.bio-buttons {
+
+/* --- SOCIAL ICONS (LEFT COLUMN) --- */
+.social-icons {
   margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem; /* Space between icons */
 }
+
+.social-icon-link {
+  color: var(--secondary-text);
+  font-size: 1.75rem; /* Icon size */
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icon-link:hover {
+  color: var(--accent-color);
+  transform: translateY(-3px); /* Hover effect */
+}
+
 
 /* --- TIMELINE (RIGHT COLUMN) --- */
 .timeline-wrapper {
@@ -117,9 +133,8 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  /* REFINED SHINY EFFECT */
   background: radial-gradient(circle at 35% 35%, #FEF3C7, var(--accent-color));
-  box-shadow: 0 0 5px 0px rgba(251, 191, 36, 0.6); /* Reduced glow */
+  box-shadow: 0 0 5px 0px rgba(251, 191, 36, 0.6);
   border: 3px solid var(--bg-color);
 }
 
@@ -137,7 +152,7 @@ body {
   margin: 0;
 }
 .timeline-category {
-    color: var(--accent-color); /* ACCENT COLOR */
+    color: var(--accent-color);
     font-weight: 500;
     margin: 0.25rem 0 0.75rem;
 }
@@ -166,7 +181,7 @@ body {
 .back-button {
   background: none;
   border: none;
-  color: var(--accent-color); /* ACCENT COLOR */
+  color: var(--accent-color);
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
@@ -180,7 +195,7 @@ body {
   margin-bottom: 2rem;
 }
 .case-study-category {
-  color: var(--accent-color); /* ACCENT COLOR */
+  color: var(--accent-color);
   font-weight: bold;
   text-transform: uppercase;
   margin: 0;
@@ -249,7 +264,6 @@ body {
   background-color: #111;
 }
 
-/* --- GALLERY CAPTION STYLES --- */
 .gallery-item-container {
     position: relative;
     overflow: hidden;
@@ -273,63 +287,6 @@ body {
 
 .gallery-item-container:hover .gallery-caption {
     opacity: 1;
-}
-
-
-/* --- BUTTON STYLES --- */
-.btn {
-  padding: 0.75rem 1.5rem;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  transition: transform 0.2s, background-color 0.2s;
-}
-.btn:hover {
-  transform: translateY(-2px);
-}
-.btn-primary {
-  background-color: var(--accent-color);
-  color: #1C1917;
-  margin-right: 1rem;
-  border-color: var(--accent-color);
-  position: relative;
-  overflow: hidden;
-}
-.btn-primary:hover {
-  background-color: #FCD34D;
-}
-
-/* SHINY BUTTON EFFECT */
-.btn-primary::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 20%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.4);
-    transform: rotate(45deg);
-    transition: all 0.4s ease;
-    opacity: 0;
-}
-
-.btn-primary:hover::after {
-    left: 130%;
-    opacity: 1;
-}
-
-
-.btn-secondary {
-  background-color: transparent;
-  color: var(--text-color);
-  border: 1px solid var(--border-color);
-}
-.btn-secondary:hover {
-    background-color: var(--card-color);
 }
 
 /* --- FOOTER --- */
@@ -363,7 +320,7 @@ footer {
   .left-column {
     position: static;
     height: auto;
-    padding: 3rem 0 2rem 0; /* Reduced top padding */
+    padding: 3rem 0 2rem 0;
     text-align: center;
     align-items: center;
   }
@@ -373,10 +330,9 @@ footer {
   .bio-container {
     text-align: center;
   }
-
-  /* --- NEW STYLES FOR BETTER MOBILE SPACING & TYPOGRAPHY --- */
-
-  /* Reduce heading sizes */
+  .social-icons {
+    justify-content: center; /* Center icons on mobile */
+  }
   .bio-name {
     font-size: 2.25rem;
   }
@@ -384,13 +340,11 @@ footer {
     font-size: 1.3rem;
   }
   .case-study-title {
-      font-size: 2rem; /* Was 2.5rem */
+      font-size: 2rem;
   }
   .case-study-section h2 {
     font-size: 1.5rem;
   }
-
-  /* Reduce body text size slightly for better hierarchy */
   .bio-description,
   .timeline-description,
   .case-study-section p, 
@@ -398,16 +352,14 @@ footer {
     font-size: 1rem;
     line-height: 1.7;
   }
-
-  /* Adjust spacing for a less "clumped" feel */
   .timeline-wrapper {
-    padding-left: 2rem; /* Reduce side padding */
+    padding-left: 2rem;
   }
   .timeline-dot {
-    left: -34px; /* Adjust dot position to match new padding */
+    left: -34px;
   }
   .case-study-section {
-    margin-bottom: 2.5rem; /* Reduce space between sections */
+    margin-bottom: 2.5rem;
   }
   .case-study-header {
     margin-bottom: 1.5rem;
