@@ -2,15 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
 
 :root {
-  /* --- ENERGETIC INDIGO & VIOLET PALETTE --- */
-  --bg-color: #0A0A14;           /* Near-black with a hint of Indigo */
-  --card-color: #1A1B2D;         /* Deep Indigo Slate */
-  --text-color: #E4E4E7;         /* Soft, cool off-white */
-  --primary-color: #F9FAFB;       /* Bright White for headings */
-  --secondary-text: #A0A0B0;     /* Muted Lavender Gray */
-  --border-color: #2C2D42;       /* Indigo Border */
-  --timeline-line-color: #2C2D42; /* Indigo Line */
-  --accent-color: #8B5CF6;        /* Electric Violet */
+  /* --- MINIMALIST SKY & SLATE PALETTE (LIGHT THEME) --- */
+  --bg-color: #F9FAFB;           /* Very light, cool gray */
+  --card-color: #FFFFFF;         /* Pure white for cards */
+  --text-color: #374151;         /* Dark Slate for body text */
+  --primary-color: #1F2937;       /* Deeper Slate for headings */
+  --secondary-text: #6B7280;     /* Medium Gray for subtitles */
+  --border-color: #E5E7EB;       /* Light Gray Border */
+  --timeline-line-color: #E5E7EB; /* Light Gray Line */
+  --accent-color: #3B82F6;        /* Modern Sky Blue */
 }
 
 body {
@@ -68,7 +68,12 @@ body {
 }
 .bio-title {
   font-size: 1.2rem;
-  color: var(--accent-color); /* ACCENT COLOR */
+  /* IMPROVED SHINY TEXT: Higher contrast gradient for readability */
+  background-image: linear-gradient(135deg, #60A5FA, var(--accent-color)); /* From a medium blue to main blue */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--accent-color); /* Fallback for browsers that don't support text-fill-color */
+  text-shadow: 0 1px 3px rgba(59, 130, 246, 0.2); /* Sharper, more subtle shadow */
   margin: 0 0 1rem;
   font-weight: 500;
 }
@@ -92,7 +97,12 @@ body {
 }
 
 .social-icon-link:hover {
-  color: var(--accent-color);
+  /* IMPROVED SHINY HOVER: Higher contrast gradient */
+  background-image: linear-gradient(135deg, #60A5FA, var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--accent-color); /* Fallback */
+  text-shadow: 0 0 8px rgba(59, 130, 246, 0.5); /* Stronger glow on hover */
   transform: translateY(-3px); /* Hover effect */
 }
 
@@ -124,6 +134,7 @@ body {
 
 .timeline-item:hover {
     background-color: var(--card-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .timeline-dot {
@@ -133,8 +144,8 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #DDD6FE, var(--accent-color));
-  box-shadow: 0 0 10px 3px rgba(139, 92, 246, 0.5);
+  background: radial-gradient(circle at 35% 35%, #DBEAFE, var(--accent-color));
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for light theme */
   border: 3px solid var(--bg-color);
 }
 
@@ -152,7 +163,12 @@ body {
   margin: 0;
 }
 .timeline-category {
-    color: var(--accent-color);
+    /* IMPROVED SHINY TEXT: Higher contrast gradient */
+    background-image: linear-gradient(135deg, #60A5FA, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--accent-color); /* Fallback */
+    text-shadow: 0 1px 3px rgba(59, 130, 246, 0.2); /* Sharper, more subtle shadow */
     font-weight: 500;
     margin: 0.25rem 0 0.75rem;
 }
@@ -181,13 +197,22 @@ body {
 .back-button {
   background: none;
   border: none;
-  color: var(--accent-color);
+  /* IMPROVED SHINY TEXT: Higher contrast gradient */
+  background-image: linear-gradient(135deg, #60A5FA, var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--accent-color); /* Fallback */
+  text-shadow: 0 1px 3px rgba(59, 130, 246, 0.2); /* Sharper, more subtle shadow */
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   padding: 0;
   margin-bottom: 2rem;
 }
+.back-button:hover {
+  text-shadow: 0 0 12px rgba(59, 130, 246, 0.6); /* Stronger glow on hover */
+}
+
 
 .case-study-header {
   border-bottom: 1px solid var(--border-color);
@@ -195,7 +220,12 @@ body {
   margin-bottom: 2rem;
 }
 .case-study-category {
-  color: var(--accent-color);
+  /* IMPROVED SHINY TEXT: Higher contrast gradient */
+  background-image: linear-gradient(135deg, #60A5FA, var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--accent-color); /* Fallback */
+  text-shadow: 0 1px 3px rgba(59, 130, 246, 0.2); /* Sharper, more subtle shadow */
   font-weight: bold;
   text-transform: uppercase;
   margin: 0;
@@ -230,7 +260,7 @@ body {
   margin-bottom: 1rem;
 }
 .case-study-section p, .case-study-section li {
-  color: var(--secondary-text);
+  color: var(--text-color);
   font-size: 1.1rem;
   line-height: 1.8;
 }
@@ -244,7 +274,8 @@ body {
     gap: 0.5rem;
 }
 .tech-tag {
-    background-color: var(--card-color);
+    background-color: var(--border-color); /* Light gray background for tags */
+    color: var(--text-color);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -277,10 +308,10 @@ body {
   transform: translateX(-50%) translateY(20px);
   width: 90%;
   max-width: 500px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(31, 41, 55, 0.6); /* Darker glass effect for light theme */
   backdrop-filter: blur(8px) saturate(180%);
   -webkit-backdrop-filter: blur(8px) saturate(180%);
-  color: var(--primary-color);
+  color: #FFFFFF; /* White text on the dark caption background */
   padding: 0.75rem 1rem;
   font-size: 0.95rem;
   text-align: center;
@@ -313,7 +344,12 @@ footer {
     font-weight: 500;
 }
 .back-to-top:hover {
-    color: var(--accent-color);
+    /* IMPROVED SHINY HOVER: Higher contrast gradient */
+    background-image: linear-gradient(135deg, #60A5FA, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--accent-color); /* Fallback */
+    text-shadow: 0 0 8px rgba(59, 130, 246, 0.5); /* Stronger glow on hover */
 }
 
 /* --- RESPONSIVE STYLES --- */
@@ -361,7 +397,8 @@ footer {
     padding-left: 2rem;
   }
   .timeline-dot {
-    left: -34px;
+    left: -30px; 
+    top: 38px;   
   }
   .case-study-section {
     margin-bottom: 2.5rem;
