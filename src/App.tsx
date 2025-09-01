@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="main-layout">
       <div className="left-column">
-        <Bio onNavigateHome={handleNavigateToTimeline} />
+        <Bio/>
       </div>
 
       {/* 3. Attach the ref to the right column div */}

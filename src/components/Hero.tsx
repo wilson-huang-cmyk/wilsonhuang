@@ -1,5 +1,4 @@
 // src/components/Hero.tsx
-// No changes needed for React import in modern Vite setups
 import Portrait from '../assets/portrait.png';
 
 export const Hero = () => {
