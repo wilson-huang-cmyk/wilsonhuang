@@ -67,12 +67,20 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({ project, onBack }) => {
         )}
 
         {/* Optional Photo Gallery */}
+
         {project.caseStudy.galleryImages && project.caseStudy.galleryImages.length > 0 && (
           <div className="case-study-section">
             <h2>Photo Gallery</h2>
             <div className="photo-gallery-grid">
               {project.caseStudy.galleryImages.map((image, index) => (
-                <img key={index} src={image} alt={`Gallery image ${index + 1}`} className="gallery-image" />
+                <div key={index} className="gallery-item-container">
+                  {/* Access the .src property here */}
+                  <img src={image.src} alt={`Gallery image ${index + 1}`} className="gallery-image" />
+                  {/* And add the caption logic */}
+                  {image.caption && (
+                    <span className="gallery-caption">{image.caption}</span>
+                  )}
+                </div>
               ))}
             </div>
           </div>
