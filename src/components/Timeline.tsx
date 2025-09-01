@@ -81,7 +81,7 @@ const timelineData: TimelineEvent[] = [
             heroImage: safeplay,
             problem: 'Online gaming communities are rife with sophisticated threats, including coded predatory language, grooming, and cyberbullying, which traditional moderation tools often miss.',
             solution: 'SafePlay AI is a comprehensive safety platform that uses a multi-modal approach—processing in-game text, voice (future), and screen content (OCR) in real-time. Our NLP models are fine-tuned to detect nuanced and coded threats, providing immediate alerts to a parent-controlled dashboard.',
-            myRole: 'As Co-Founder and Chief Product Officer, I led the product strategy from ideation to MVP. I conducted market research, defined the core feature set, and designed the user experience for the parent-facing web and mobile applications. I coordinated with the development team to ensure our product vision was realized and was also responsible for crafting our winning pitch at LaunchX.',
+            myRole: 'As Co-Founder and Chief Product Officer, I led the product strategy from ideation to MVP. I conducted market research, defined the core feature set, and designed the user experience for the parent-facing web and mobile applications. I coordinated with the development team to ensure our product vision was realized and also assisted in crafting our winning pitch at LaunchX.',
             outcomes: [
                 'Awarded "Best Pitch" and "Entrepreneurial Excellence" at the 2025 LaunchX Bay Area Program.',
                 'Successfully developed and launched a validated MVP with initial customer sales and traction.'
@@ -132,11 +132,11 @@ const timelineData: TimelineEvent[] = [
             ],
             problem: 'Public discourse surrounding the pharmaceutical industry and its role in global health crises is often polarized and lacks a clear, evidence-based analysis accessible to a general audience.',
             solution: 'I undertook a rigorous research process to write "Big Pharmamania," a book that breaks down complex legal and ethical issues into a compelling narrative. It combines business ethics, scientific analysis, and social commentary to expose monopolistic practices and advocate for systemic reform in public health.',
-            myRole: "As the author, I managed the entire project lifecycle, from initial concept to publication. My research and writing were assisted by two distinguished academic mentors — one holding an M.A. Hons from St. John’s College, Cambridge with over 25 years of experience in history and literature, and another with a Ph.D. in Philosophy from York University and more than a decade of expertise in ethics, political theory, and law. I personally handled the manuscript editing, cover design, Amazon KDP publishing, and distribution.",
+            myRole: "As the author, I managed the entire project lifecycle, from initial concept to publication. My research and writing were assisted by two distinguished academic mentors — one holding an M.A. Hons from St. John’s College, Cambridge with over 25 years of experience in history and literature, and another with a Ph.D. in Philosophy from York University and more than a decade of expertise in ethics, political theory, and law. I personally handled the manuscript editing, Amazon KDP publishing, and distribution.",
             outcomes: [
                 'Achieved #1 Bestseller status in the Legal Studies category on Amazon.ca in Spring 2025.',
                 'Received powerful endorsements from academics at York University and Cambridge.',
-                'Praised by over 260+ buyers for its factual, evidence-based analysis of a complex and politically divisive issue.',
+                'Trusted by over 260 buyers, many of whom praised its factual, evidence-based analysis of a complex and politically divisive issue.',
                 'Available on Amazon: https://www.amazon.ca/Big-Pharmamania-Corruption-Pharmaceutical-Industry/dp/B0DSV5MX5D'
             ]
         }

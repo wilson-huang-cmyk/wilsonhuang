@@ -326,14 +326,14 @@ body.light-theme .theme-toggle .toggle-thumb {
 }
 
 .case-study-section {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem; /* REDUCED: Was 3rem */
 }
 .case-study-section h2 {
   font-size: 1.75rem;
   color: var(--primary-color);
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem; /* INCREASED: Was 1rem */
 }
 .case-study-section p, .case-study-section li {
   color: var(--text-color);
@@ -347,7 +347,7 @@ body.light-theme .theme-toggle .toggle-thumb {
 .tech-stack {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.75rem; /* INCREASED: Was 0.5rem */
 }
 .tech-tag {
     background-color: var(--card-color);
