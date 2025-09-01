@@ -45,24 +45,54 @@ body {
 
 /* --- THEME TOGGLE BUTTON --- */
 .theme-toggle {
-  position: fixed; /* Changed to fixed for viewport positioning */
+  position: fixed;
   top: 1.5rem;
-  right: 1.5rem; 
+  right: 1.5rem;
   z-index: 1000;
-  background: var(--card-color);
-  border: 1px solid var(--border-color);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.5rem;
+  
+  /* New toggle switch styles */
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around; /* To space the emojis */
+  width: 60px; /* Wider for the toggle */
+  height: 30px; /* Standard toggle height */
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 30px; /* Fully rounded ends */
+  cursor: pointer;
+  padding: 0 4px; /* Padding for the icons */
   transition: all 0.3s ease;
 }
+
+/* Emojis inside the toggle */
+.theme-toggle::before, .theme-toggle::after {
+  font-size: 0.9rem;
+}
+.theme-toggle::before {
+  content: '🌙';
+}
+.theme-toggle::after {
+  content: '☀️';
+}
+
+/* The sliding thumb */
+.theme-toggle .toggle-thumb {
+  position: absolute;
+  left: 3px; /* Initial position on the left */
+  width: 24px; /* Size of the thumb */
+  height: 24px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+body.light-theme .theme-toggle .toggle-thumb {
+  /* Move thumb to the right in light mode */
+  transform: translateX(30px); 
+}
+
 .theme-toggle:hover {
-  transform: scale(1.1) rotate(15deg);
   box-shadow: 0 0 10px var(--accent-glow-hover);
 }
 

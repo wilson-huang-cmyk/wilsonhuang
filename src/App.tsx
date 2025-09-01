@@ -7,15 +7,18 @@ import { CaseStudy } from './components/CaseStudy';
 function App() {
   const [currentView, setCurrentView] = useState<'timeline' | 'caseStudy'>('timeline');
   const [selectedProject, setSelectedProject] = useState<TimelineEvent | null>(null);
-  const [theme, setTheme] = useState('dark'); // 'dark' is the default theme
+  const [theme, setTheme] = useState('dark');
+
   const rightColumnRef = useRef<HTMLDivElement>(null);
 
-  // This effect runs when the 'theme' state changes
   useEffect(() => {
-    // It removes any existing theme class and adds the current one
-    document.body.className = '';
-    document.body.classList.add(theme + '-theme');
+    // Set the theme class on the body element
+    document.body.className = theme === 'light' ? 'light-theme' : '';
   }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
 
   const handleNavigateToCaseStudy = (project: TimelineEvent) => {
     setSelectedProject(project);
@@ -33,31 +36,27 @@ function App() {
     setSelectedProject(null);
   };
 
-  // Function to toggle between 'light' and 'dark' themes
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
-
   return (
-    <div className="main-layout">
-      <div className="left-column">
-        {/* --- THEME TOGGLE BUTTON --- */}
-        <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
-          {theme === 'dark' ? '☀️' : '🌙'}
-        </button>
-        <Bio />
+    <>
+      <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+        <span className="toggle-thumb"></span>
+      </button>
+      <div className="main-layout">
+        <div className="left-column">
+          <Bio/>
+        </div>
+        <div className="right-column" ref={rightColumnRef}>
+          {currentView === 'timeline' ? (
+            <Timeline onNavigate={handleNavigateToCaseStudy} />
+          ) : (
+            selectedProject && <CaseStudy project={selectedProject} onBack={handleNavigateToTimeline} />
+          )}
+          <Footer />
+        </div>
       </div>
-
-      <div className="right-column" ref={rightColumnRef}>
-        {currentView === 'timeline' ? (
-          <Timeline onNavigate={handleNavigateToCaseStudy} />
-        ) : (
-          selectedProject && <CaseStudy project={selectedProject} onBack={handleNavigateToTimeline} />
-        )}
-        <Footer />
-      </div>
-    </div>
+    </>
   );
 }
 
 export default App;
+
