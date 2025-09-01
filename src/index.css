@@ -2,15 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
 
 :root {
-  /* --- WARMER DARK PALETTE WITH HONEY ACCENT --- */
-  --bg-color: #1C1917; /* Deep, warm charcoal */
-  --card-color: #292524; /* Warm stone gray */
-  --text-color: #E0E0E0; /* Light gray (off-white) */
-  --primary-color: #FFFFFF; /* White for main text */
-  --secondary-text: #888888; /* Medium gray */
-  --border-color: #44403C; /* Warmer border color */
-  --timeline-line-color: #44403C;
-  --accent-color: #FBBF24; /* Warm Honey/Gold for spice */
+  /* --- ENERGETIC INDIGO & VIOLET PALETTE --- */
+  --bg-color: #0A0A14;           /* Near-black with a hint of Indigo */
+  --card-color: #1A1B2D;         /* Deep Indigo Slate */
+  --text-color: #E4E4E7;         /* Soft, cool off-white */
+  --primary-color: #F9FAFB;       /* Bright White for headings */
+  --secondary-text: #A0A0B0;     /* Muted Lavender Gray */
+  --border-color: #2C2D42;       /* Indigo Border */
+  --timeline-line-color: #2C2D42; /* Indigo Line */
+  --accent-color: #8B5CF6;        /* Electric Violet */
 }
 
 body {
@@ -63,7 +63,7 @@ body {
 }
 .bio-name {
   font-size: 3rem;
-  color: #fff;
+  color: var(--primary-color);
   margin: 0 0 0.5rem;
 }
 .bio-title {
@@ -123,7 +123,7 @@ body {
 }
 
 .timeline-item:hover {
-    background-color: rgba(41, 37, 36, 0.7);
+    background-color: var(--card-color);
 }
 
 .timeline-dot {
@@ -133,8 +133,8 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #FEF3C7, var(--accent-color));
-  box-shadow: 0 0 5px 0px rgba(251, 191, 36, 0.6);
+  background: radial-gradient(circle at 35% 35%, #DDD6FE, var(--accent-color));
+  box-shadow: 0 0 10px 3px rgba(139, 92, 246, 0.5);
   border: 3px solid var(--bg-color);
 }
 
@@ -148,7 +148,7 @@ body {
 }
 .timeline-title {
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--primary-color);
   margin: 0;
 }
 .timeline-category {
@@ -161,7 +161,7 @@ body {
   line-height: 1.7;
 }
 .timeline-link {
-  color: #fff;
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: bold;
   display: inline-block;
@@ -202,7 +202,7 @@ body {
 }
 .case-study-title {
   font-size: 3rem;
-  color: #fff;
+  color: var(--primary-color);
   margin: 0.5rem 0;
 }
 .case-study-date {
@@ -216,7 +216,7 @@ body {
   object-fit: contain;
   border-radius: 8px;
   margin-bottom: 3rem;
-  background-color: #1C1917;
+  background-color: var(--bg-color);
 }
 
 .case-study-section {
@@ -224,7 +224,7 @@ body {
 }
 .case-study-section h2 {
   font-size: 1.75rem;
-  color: #fff;
+  color: var(--primary-color);
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
@@ -280,7 +280,7 @@ body {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(8px) saturate(180%);
   -webkit-backdrop-filter: blur(8px) saturate(180%);
-  color: #f9f9f9;
+  color: var(--primary-color);
   padding: 0.75rem 1rem;
   font-size: 0.95rem;
   text-align: center;
