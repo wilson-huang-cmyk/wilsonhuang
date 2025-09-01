@@ -10,6 +10,25 @@ import risedalian2024 from '../assets/risedalian2024.png';
 import risetoc2024 from '../assets/risetoc2024.png';
 import risevan2025 from '../assets/risevan2025.png';
 import riseLjubljana2025 from '../assets/riseljubljana2025.png';
+import { useRef } from 'react';
+import { motion, useInView } from 'motion/react';
+
+// Fade each timeline item in from the bottom when it scrolls into view.
+const FadeInOnView: React.FC<{ children: React.ReactNode; index?: number }> = ({ children, index = 0 }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { amount: 0.3, once: false });
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+      transition={{ duration: 0.35, ease: 'easeOut', delay: Math.min(index * 0.02, 0.2) }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
 
 
 // Exporting the type so other components can use it
@@ -41,7 +60,7 @@ const timelineData: TimelineEvent[] = [
             heroImage: resilead,
             problem: 'Young entrepreneurs, especially in developing or post-conflict regions, face insurmountable barriers to accessing capital, mentorship, and global platforms to scale their ventures.',
             solution: 'Resilead provides accessible microloans and need-based financing through a structured support system. We established the COLLABOR8 Framework for advocacy and education, and as a founding partner with the UN Department of Peacekeeping Operations, we amplify youth voices from war-torn regions at major UN forums.',
-            myRole: 'As Founder and CEO, I drove the strategic vision, from establishing partnerships with 6+ international organizations to leading fundraising and program design. I spearheaded a partnership with the UN DPO to raise over $5,000 for youth representation and launched the South Sudan Women\'s Economic Empowerment Microgrant Program to provide capital and training to female entrepreneurs.',
+            myRole: 'As Founder and CEO, I drove the strategic vision, from establishing partnerships with 6+ international organizations to leading fundraising and program design. I facilitated a collaboration with the UN DPO, raising over $5,000 for youth representation, and launched the South Sudan Women\'s Economic Empowerment Microgrant Program to provide capital and training to female entrepreneurs.',
             outcomes: [
                 'Empowered over 1,100 young leaders across 35+ countries.',
                 'Recognized by the UN DPO as the world’s first high-school-led business incubator program.',
@@ -62,11 +81,10 @@ const timelineData: TimelineEvent[] = [
             heroImage: safeplay,
             problem: 'Online gaming communities are rife with sophisticated threats, including coded predatory language, grooming, and cyberbullying, which traditional moderation tools often miss.',
             solution: 'SafePlay AI is a comprehensive safety platform that uses a multi-modal approach—processing in-game text, voice (future), and screen content (OCR) in real-time. Our NLP models are fine-tuned to detect nuanced and coded threats, providing immediate alerts to a parent-controlled dashboard.',
-            myRole: 'As Co-Founder and Chief Product Officer, I led the product strategy from ideation to MVP. I conducted market research, defined the core feature set, designed the user experience for the parent dashboard, and managed the development sprints. I was also responsible for crafting our winning pitch at LaunchX.',
+            myRole: 'As Co-Founder and Chief Product Officer, I led the product strategy from ideation to MVP. I conducted market research, defined the core feature set, and designed the user experience for the parent-facing web and mobile applications. I coordinated with the development team to ensure our product vision was realized and was also responsible for crafting our winning pitch at LaunchX.',
             outcomes: [
                 'Awarded "Best Pitch" and "Entrepreneurial Excellence" at the 2025 LaunchX Bay Area Program.',
-                'Successfully developed and launched a validated MVP with initial customer sales and traction.',
-                'Built a robust technical foundation for future feature expansion, including voice analysis.'
+                'Successfully developed and launched a validated MVP with initial customer sales and traction.'
             ],
             techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Flask', 'Supabase', 'Stripe', 'Custom NLP Models']
         }
@@ -88,11 +106,13 @@ const timelineData: TimelineEvent[] = [
             ],
             problem: 'Elite-level debate coaching is often prohibitively expensive, creating a high barrier to entry and limiting access for talented students from diverse socioeconomic backgrounds.',
             solution: 'Rise Youth Debate Academy was founded on the principle of accessibility. We developed a high-quality, scalable curriculum and a train-the-trainer model that allowed us to offer coaching at a fraction of the cost of private tutors, making competitive debate a viable option for hundreds of students.',
-            myRole: 'As **Founder and CEO**, I directed the academy\'s strategic growth, scaling operations across four Canadian provinces (BC, Alberta, Ontario, Quebec) and internationally to Indonesia. I developed a proprietary curriculum now used in two schools. In my capacity as **Head of Debate**, I directly mentored over 320 students and managed all international logistics for a 20-person team competing in the World Scholar\'s Cup in China and the USA, handling everything from travel and accommodations to team supervision.',
+            myRole: 'As Founder and CEO, I directed the academy\'s strategic growth, scaling operations across four Canadian provinces (BC, Alberta, Ontario, Quebec) and internationally to Indonesia. I developed a proprietary curriculum now used in two schools. In my capacity as Head of Debate, I directly mentored over 320 students and managed all international logistics for a 20-person team competing in the World Scholar\'s Cup in China and the USA, handling everything from travel and accommodations to team supervision.',
             outcomes: [
                 'Generated over $2.7 million in calculated cost savings for more than 320 families by providing an accessible alternative to private coaching.',
                 'Coached 320+ students to 400+ total awards, including 169 Gold Medals, 228 Silver Medals, and 8 Trophies.',
-                'Guided students to top placements in highly competitive tournaments of 500+, 1000+, and 1500+ competitors.',
+                'In 500-Competitor Tournaments: Achieved 39 Top 10, 68 Top 20, and 68 Top 50 placements.',
+                'In 1000-Competitor Tournaments: Secured 7 Top 10, 13 Top 20, and 44 Top 50 placements.',
+                'In 1500-Competitor Tournaments: Earned 7 Top 10, 12 Top 20, and 28 Top 50 placements.',
                 'Expanded operations across British Columbia, Alberta, Ontario, Quebec, and Indonesia.',
                 'Developed a core curriculum that has been adopted by 2 schools for their debate programs.'
             ]
@@ -112,7 +132,7 @@ const timelineData: TimelineEvent[] = [
             ],
             problem: 'Public discourse surrounding the pharmaceutical industry and its role in global health crises is often polarized and lacks a clear, evidence-based analysis accessible to a general audience.',
             solution: 'I undertook a rigorous research process to write "Big Pharmamania," a book that breaks down complex legal and ethical issues into a compelling narrative. It combines business ethics, scientific analysis, and social commentary to expose monopolistic practices and advocate for systemic reform in public health.',
-            myRole: 'As the sole author, I was responsible for the entire project lifecycle: conducting in-depth research, writing and editing the manuscript, designing the cover, and managing the publishing and distribution process on Amazon KDP. I also led marketing efforts and personally distributed and signed copies for students.',
+            myRole: 'As the author, I managed the entire project lifecycle, from initial concept to publication. My research and writing were assisted by John Pitsiaeli M.A. Hons (St. John\'s College, Cambridge) and Dr. Mohamad Al-Hakim, Ph.D. (Philosophy, York University), who provided expert guidance in history, literature, ethics, and law. I personally handled the manuscript editing, cover design, Amazon KDP publishing, and distribution.',
             outcomes: [
                 'Achieved #1 Bestseller status in the Legal Studies category on Amazon.ca in Spring 2025.',
                 'Received powerful endorsements from academics at York University and Cambridge.',
@@ -137,8 +157,9 @@ interface TimelineProps {
 export const Timeline: React.FC<TimelineProps> = ({ onNavigate }) => {
   return (
     <div className="timeline-wrapper">
-      {timelineData.map((item) => (
-        <div key={item.id} className="timeline-item" onClick={() => item.caseStudy && onNavigate(item)}>
+      {timelineData.map((item, index) => (
+        <FadeInOnView key={item.id} index={index}>
+          <div className="timeline-item" onClick={() => item.caseStudy && onNavigate(item)}>
           <div className="timeline-dot"></div>
           <div className="timeline-content">
             <p className="timeline-date">{item.date}</p>
@@ -148,6 +169,7 @@ export const Timeline: React.FC<TimelineProps> = ({ onNavigate }) => {
             {item.caseStudy && <span className="timeline-link">View Case Study →</span>}
           </div>
         </div>
+        </FadeInOnView>
       ))}
     </div>
   );
