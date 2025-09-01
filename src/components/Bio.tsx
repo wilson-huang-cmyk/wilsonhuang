@@ -6,7 +6,7 @@ export const Bio: React.FC = () => {
     <div className="bio-container">
       <img src={Portrait} alt="Wilson Huang" className="bio-image" />
       <h1 className="bio-name">Wilson Huang</h1>
-      <h3 className="bio-title">Social Impact Leader | AI Researcher | Bestselling Author</h3>
+      <h3 className="bio-title">Social Impact Leader • AI Researcher • Bestselling Author</h3>
       <p className="bio-description">
         I build and scale ventures that empower communities, from launching a global microfinance fund to pioneering AI solutions for online safety. My work is driven by a commitment to leveraging technology and strategic partnerships to create sustainable, human-centric impact.
       </p>

@@ -60,13 +60,13 @@ const timelineData: TimelineEvent[] = [
             heroImage: resilead,
             problem: 'Young entrepreneurs, especially in developing or post-conflict regions, face insurmountable barriers to accessing capital, mentorship, and global platforms to scale their ventures.',
             solution: 'Resilead provides accessible microloans and need-based financing through a structured support system. We established the COLLABOR8 Framework for advocacy and education, and as a founding partner with the UN Department of Peacekeeping Operations, we amplify youth voices from war-torn regions at major UN forums.',
-            myRole: 'As Founder and CEO, I drove the strategic vision, from establishing partnerships with 6+ international organizations to leading fundraising and program design. I facilitated a collaboration with the UN DPO, raising over $5,000 for youth representation, and launched the South Sudan Women\'s Economic Empowerment Microgrant Program to provide capital and training to female entrepreneurs.',
+            myRole: 'As Founder and CEO, I drove the strategic vision, from establishing partnerships with 6+ international organizations to leading fundraising and program design. I assisted a collaboration with the UN DPO, raising over $5,000 for youth representation, and launched the South Sudan Women\'s Economic Empowerment Microgrant Program to provide capital and training to female entrepreneurs.',
             outcomes: [
                 'Empowered over 1,100 young leaders across 35+ countries.',
-                'Recognized by the UN DPO as the world’s first high-school-led business incubator program.',
+                'Recognized by the UN DPO as the South Sudan’s first high-school-led business incubator program.',
                 'Successfully funded more than 20 distinct youth-led entrepreneurial projects.',
                 'Raised over $5,000 USD, enabling UN forum representation for leaders from Liberia, Kosovo, and Côte d\'Ivoire.',
-                'Launched a microgrant program providing $150 grants and business training to 20 women in South Sudan.',
+                'Assisted in launching a microgrant program providing $150 grants and business training to 20 women in South Sudan.',
                 'Planning expansion into Central Africa in 2026.'
             ]
         }
@@ -86,7 +86,7 @@ const timelineData: TimelineEvent[] = [
                 'Awarded "Best Pitch" and "Entrepreneurial Excellence" at the 2025 LaunchX Bay Area Program.',
                 'Successfully developed and launched a validated MVP with initial customer sales and traction.'
             ],
-            techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Flask', 'Supabase', 'Stripe', 'Custom NLP Models']
+            techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Flask', 'Supabase', 'Stripe']
         }
     },
      {
@@ -132,7 +132,7 @@ const timelineData: TimelineEvent[] = [
             ],
             problem: 'Public discourse surrounding the pharmaceutical industry and its role in global health crises is often polarized and lacks a clear, evidence-based analysis accessible to a general audience.',
             solution: 'I undertook a rigorous research process to write "Big Pharmamania," a book that breaks down complex legal and ethical issues into a compelling narrative. It combines business ethics, scientific analysis, and social commentary to expose monopolistic practices and advocate for systemic reform in public health.',
-            myRole: 'As the author, I managed the entire project lifecycle, from initial concept to publication. My research and writing were assisted by John Pitsiaeli M.A. Hons (St. John\'s College, Cambridge) and Dr. Mohamad Al-Hakim, Ph.D. (Philosophy, York University), who provided expert guidance in history, literature, ethics, and law. I personally handled the manuscript editing, cover design, Amazon KDP publishing, and distribution.',
+            myRole: "As the author, I managed the entire project lifecycle, from initial concept to publication. My research and writing were assisted by two distinguished academic mentors — one holding an M.A. Hons from St. John’s College, Cambridge with over 25 years of experience in history and literature, and another with a Ph.D. in Philosophy from York University and more than a decade of expertise in ethics, political theory, and law. I personally handled the manuscript editing, cover design, Amazon KDP publishing, and distribution.",
             outcomes: [
                 'Achieved #1 Bestseller status in the Legal Studies category on Amazon.ca in Spring 2025.',
                 'Received powerful endorsements from academics at York University and Cambridge.',
