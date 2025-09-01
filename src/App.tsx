@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'; // 1. Import useRef
+import { useState, useEffect, useRef } from 'react';
 import { Bio } from './components/Bio';
 import { Timeline, type TimelineEvent } from './components/Timeline';
 import { Footer } from './components/Footer';
@@ -7,22 +7,23 @@ import { CaseStudy } from './components/CaseStudy';
 function App() {
   const [currentView, setCurrentView] = useState<'timeline' | 'caseStudy'>('timeline');
   const [selectedProject, setSelectedProject] = useState<TimelineEvent | null>(null);
-
-  // 2. Create a ref to hold the right column DOM element
+  const [theme, setTheme] = useState('dark'); // 'dark' is the default theme
   const rightColumnRef = useRef<HTMLDivElement>(null);
+
+  // This effect runs when the 'theme' state changes
+  useEffect(() => {
+    // It removes any existing theme class and adds the current one
+    document.body.className = '';
+    document.body.classList.add(theme + '-theme');
+  }, [theme]);
 
   const handleNavigateToCaseStudy = (project: TimelineEvent) => {
     setSelectedProject(project);
     setCurrentView('caseStudy');
-
-    // 4. Implement conditional scrolling logic
-    const isMobile = window.innerWidth <= 1024; // Match this breakpoint to your CSS
-
+    const isMobile = window.innerWidth <= 1024;
     if (isMobile) {
-      // On mobile, scroll the top of the right column into view
       rightColumnRef.current?.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // On desktop, scroll the entire window to the top
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -32,13 +33,21 @@ function App() {
     setSelectedProject(null);
   };
 
+  // Function to toggle between 'light' and 'dark' themes
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
   return (
     <div className="main-layout">
       <div className="left-column">
-        <Bio/>
+        {/* --- THEME TOGGLE BUTTON --- */}
+        <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
+          {theme === 'dark' ? '☀️' : '🌙'}
+        </button>
+        <Bio />
       </div>
 
-      {/* 3. Attach the ref to the right column div */}
       <div className="right-column" ref={rightColumnRef}>
         {currentView === 'timeline' ? (
           <Timeline onNavigate={handleNavigateToCaseStudy} />

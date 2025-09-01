@@ -1,16 +1,34 @@
 /* src/index.css */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
 
+/* --- DEFAULT DARK THEME VARIABLES --- */
 :root {
-  /* --- MINIMALIST SKY & SLATE PALETTE (LIGHT THEME) --- */
-  --bg-color: #F9FAFB;           /* Very light, cool gray */
-  --card-color: #FFFFFF;         /* Pure white for cards */
-  --text-color: #374151;         /* Dark Slate for body text */
-  --primary-color: #1F2937;       /* Deeper Slate for headings */
-  --secondary-text: #6B7280;     /* Medium Gray for subtitles */
-  --border-color: #E5E7EB;       /* Light Gray Border */
-  --timeline-line-color: #E5E7EB; /* Light Gray Line */
-  --accent-color: #3B82F6;        /* Modern Sky Blue */
+  --bg-color: #0A0A14;
+  --card-color: #1A1B2D;
+  --text-color: #E4E4E7;
+  --primary-color: #F9FAFB;
+  --secondary-text: #A0A0B0;
+  --border-color: #2C2D42;
+  --timeline-line-color: #2C2D42;
+  --accent-color: #8B5CF6;
+  --accent-color-light: #C4B5FD;
+  --accent-glow: rgba(139, 92, 246, 0.5);
+  --accent-glow-hover: rgba(139, 92, 246, 0.7);
+}
+
+/* --- LIGHT THEME VARIABLES (ACTIVATED BY CLASS ON BODY) --- */
+body.light-theme {
+  --bg-color: #F9FAFB;
+  --card-color: #FFFFFF;
+  --text-color: #374151;
+  --primary-color: #1F2937;
+  --secondary-text: #6B7280;
+  --border-color: #E5E7EB;
+  --timeline-line-color: #E5E7EB;
+  --accent-color: #3B82F6;
+  --accent-color-light: #60A5FA;
+  --accent-glow: rgba(59, 130, 246, 0.2);
+  --accent-glow-hover: rgba(59, 130, 246, 0.5);
 }
 
 body {
@@ -22,7 +40,32 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-color);
   color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* --- THEME TOGGLE BUTTON --- */
+.theme-toggle {
+  position: fixed; /* Changed to fixed for viewport positioning */
+  top: 1.5rem;
+  right: 1.5rem; 
+  z-index: 1000;
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.theme-toggle:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 0 10px var(--accent-glow-hover);
+}
+
 
 /* --- MAIN TWO-COLUMN LAYOUT --- */
 .main-layout {
@@ -66,17 +109,19 @@ body {
   color: var(--primary-color);
   margin: 0 0 0.5rem;
 }
+
 .bio-title {
   font-size: 1.2rem;
-  /* IMPROVED SHINY TEXT: Higher contrast gradient for readability */
-  background-image: linear-gradient(135deg, #60A5FA, var(--accent-color)); /* From a medium blue to main blue */
+  font-weight: 500;
+  margin: 0 0 1rem;
+  /* Applying shiny effect directly */
+  background-image: linear-gradient(135deg, var(--accent-color-light), var(--accent-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: var(--accent-color); /* Fallback for browsers that don't support text-fill-color */
-  text-shadow: 0 1px 3px rgba(59, 130, 246, 0.2); /* Sharper, more subtle shadow */
-  margin: 0 0 1rem;
-  font-weight: 500;
+  color: var(--accent-color); /* Fallback */
+  text-shadow: 0 0 10px var(--accent-glow);
 }
+
 .bio-description {
   color: var(--secondary-text);
   line-height: 1.6;
@@ -87,23 +132,21 @@ body {
 .social-icons {
   margin-top: 2rem;
   display: flex;
-  gap: 1.5rem; /* Space between icons */
+  gap: 1.5rem;
 }
 
 .social-icon-link {
   color: var(--secondary-text);
-  font-size: 1.75rem; /* Icon size */
-  transition: color 0.3s, transform 0.3s;
+  font-size: 1.75rem;
+  transition: all 0.3s;
 }
 
 .social-icon-link:hover {
-  /* IMPROVED SHINY HOVER: Higher contrast gradient */
-  background-image: linear-gradient(135deg, #60A5FA, var(--accent-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: var(--accent-color); /* Fallback */
-  text-shadow: 0 0 8px rgba(59, 130, 246, 0.5); /* Stronger glow on hover */
-  transform: translateY(-3px); /* Hover effect */
+  transform: translateY(-3px);
+  color: var(--accent-color);
+}
+.social-icon-link:hover > * {
+  text-shadow: 0 0 12px var(--accent-glow-hover);
 }
 
 
@@ -126,7 +169,7 @@ body {
 .timeline-item {
   position: relative;
   margin-bottom: 2rem;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, box-shadow 0.3s;
   padding: 1.5rem;
   border-radius: 8px;
   cursor: pointer;
@@ -134,7 +177,7 @@ body {
 
 .timeline-item:hover {
     background-color: var(--card-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .timeline-dot {
@@ -144,9 +187,10 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #DBEAFE, var(--accent-color));
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for light theme */
+  background-color: var(--accent-color);
+  box-shadow: 0 0 10px 3px var(--accent-glow);
   border: 3px solid var(--bg-color);
+  transition: all 0.3s ease;
 }
 
 .timeline-content {
@@ -163,14 +207,14 @@ body {
   margin: 0;
 }
 .timeline-category {
-    /* IMPROVED SHINY TEXT: Higher contrast gradient */
-    background-image: linear-gradient(135deg, #60A5FA, var(--accent-color));
+    font-weight: 500;
+    margin: 0.25rem 0 0.75rem;
+    /* Applying shiny effect directly */
+    background-image: linear-gradient(135deg, var(--accent-color-light), var(--accent-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: var(--accent-color); /* Fallback */
-    text-shadow: 0 1px 3px rgba(59, 130, 246, 0.2); /* Sharper, more subtle shadow */
-    font-weight: 500;
-    margin: 0.25rem 0 0.75rem;
+    text-shadow: 0 0 10px var(--accent-glow);
 }
 .timeline-description {
   color: var(--secondary-text);
@@ -197,20 +241,21 @@ body {
 .back-button {
   background: none;
   border: none;
-  /* IMPROVED SHINY TEXT: Higher contrast gradient */
-  background-image: linear-gradient(135deg, #60A5FA, var(--accent-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: var(--accent-color); /* Fallback */
-  text-shadow: 0 1px 3px rgba(59, 130, 246, 0.2); /* Sharper, more subtle shadow */
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   padding: 0;
   margin-bottom: 2rem;
 }
-.back-button:hover {
-  text-shadow: 0 0 12px rgba(59, 130, 246, 0.6); /* Stronger glow on hover */
+.back-button > span {
+  background-image: linear-gradient(135deg, var(--accent-color-light), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--accent-color); /* Fallback */
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+.back-button:hover span {
+  text-shadow: 0 0 12px var(--accent-glow-hover);
 }
 
 
@@ -220,15 +265,15 @@ body {
   margin-bottom: 2rem;
 }
 .case-study-category {
-  /* IMPROVED SHINY TEXT: Higher contrast gradient */
-  background-image: linear-gradient(135deg, #60A5FA, var(--accent-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: var(--accent-color); /* Fallback */
-  text-shadow: 0 1px 3px rgba(59, 130, 246, 0.2); /* Sharper, more subtle shadow */
   font-weight: bold;
   text-transform: uppercase;
   margin: 0;
+  /* Applying shiny effect directly */
+  background-image: linear-gradient(135deg, var(--accent-color-light), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--accent-color); /* Fallback */
+  text-shadow: 0 0 10px var(--accent-glow);
 }
 .case-study-title {
   font-size: 3rem;
@@ -274,8 +319,8 @@ body {
     gap: 0.5rem;
 }
 .tech-tag {
-    background-color: var(--border-color); /* Light gray background for tags */
-    color: var(--text-color);
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -290,13 +335,13 @@ body {
 .gallery-item-container {
   position: relative;
   overflow: hidden;
-  display: flex;              /* center images */
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .gallery-image {
-  max-width: 100%;            /* keep original ratio */
+  max-width: 100%;
   height: auto;
   display: block;
 }
@@ -308,10 +353,10 @@ body {
   transform: translateX(-50%) translateY(20px);
   width: 90%;
   max-width: 500px;
-  background: rgba(31, 41, 55, 0.6); /* Darker glass effect for light theme */
+  background: rgba(26, 26, 26, 0.7);
   backdrop-filter: blur(8px) saturate(180%);
   -webkit-backdrop-filter: blur(8px) saturate(180%);
-  color: #FFFFFF; /* White text on the dark caption background */
+  color: #FFFFFF;
   padding: 0.75rem 1rem;
   font-size: 0.95rem;
   text-align: center;
@@ -319,6 +364,11 @@ body {
   transition: all 0.4s ease;
   pointer-events: none;
 }
+body.light-theme .gallery-caption {
+  background: rgba(249, 250, 251, 0.7);
+  color: #1F2937;
+}
+
 
 .gallery-item-container:hover .gallery-caption {
   opacity: 1;
@@ -344,12 +394,7 @@ footer {
     font-weight: 500;
 }
 .back-to-top:hover {
-    /* IMPROVED SHINY HOVER: Higher contrast gradient */
-    background-image: linear-gradient(135deg, #60A5FA, var(--accent-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: var(--accent-color); /* Fallback */
-    text-shadow: 0 0 8px rgba(59, 130, 246, 0.5); /* Stronger glow on hover */
+  color: var(--accent-color);
 }
 
 /* --- RESPONSIVE STYLES --- */
@@ -359,11 +404,14 @@ footer {
     padding: 0 1.5rem; 
   }
   .left-column {
-    position: static;
+    position: static; /* Let it scroll normally on mobile */
     height: auto;
     padding: 3rem 0 2rem 0;
     text-align: center;
     align-items: center;
+  }
+  .theme-toggle {
+    /* position is fixed, so it remains in the corner */
   }
   .right-column {
     padding-top: 0;
@@ -372,7 +420,7 @@ footer {
     text-align: center;
   }
   .social-icons {
-    justify-content: center; /* Center icons on mobile */
+    justify-content: center;
   }
   .bio-name {
     font-size: 2.25rem;
@@ -408,3 +456,4 @@ footer {
     padding-bottom: 1.5rem;
   }
 }
+
