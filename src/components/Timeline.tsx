@@ -4,6 +4,12 @@ import rise from '../assets/rise.png';
 import safeplay from '../assets/safeplay.png';
 import bookimg1 from '../assets/bookimg1.png';
 import bookimg2 from '../assets/bookimg2.png';
+// Imports for new debate images
+import risevan2024 from '../assets/risevan2024.png';
+import risedalian2024 from '../assets/risedalian2024.png';
+import risetoc2024 from '../assets/risetoc2024.png';
+import risevan2025 from '../assets/risevan2025.png';
+import riseLjubljana2025 from '../assets/riseLjubljana2025.png';
 
 
 // Exporting the type so other components can use it
@@ -15,7 +21,6 @@ export interface TimelineEvent {
   description: string;
   caseStudy?: {
     heroImage?: string;
-    // UPDATE: Now an array of objects for src and an optional caption
     galleryImages?: { src: string; caption?: string }[];
     problem: string;
     solution: string;
@@ -74,6 +79,13 @@ const timelineData: TimelineEvent[] = [
         description: 'Founded and scaled an international debate academy across Canada (BC, AB, ON, QC) and Indonesia, mentoring 320+ students and generating over $2.7 million in family cost savings.',
         caseStudy: {
             heroImage: rise,
+            galleryImages: [
+                { src: risevan2025, caption: 'Vancouver Round (2025): 88 Silver, 65 Gold, 6 Trophies, and 22 Top 5 placements in a 500+ competitor field.' },
+                { src: risedalian2024, caption: 'Dalian Round (2024): 58 Silver, 49 Gold, 2 Trophies, and 7 Top 10 placements among 1000+ competitors.' },
+                { src: riseLjubljana2025, caption: 'Ljubljana Round (2025): 23 Silver, 23 Gold, and 6 Top 10 placements in a 1500+ competitor international tournament.' },
+                { src: risetoc2024, caption: 'Tournament of Champions (2024): 31 Silver, 18 Gold, and a Top 10 finish in a global field of 1500+ competitors.' },
+                { src: risevan2024, caption: 'Vancouver Round (2024): 28 Silver, 14 Gold, and 8 Top 10 placements against 500+ competitors.' }
+            ],
             problem: 'Elite-level debate coaching is often prohibitively expensive, creating a high barrier to entry and limiting access for talented students from diverse socioeconomic backgrounds.',
             solution: 'Rise Youth Debate Academy was founded on the principle of accessibility. We developed a high-quality, scalable curriculum and a train-the-trainer model that allowed us to offer coaching at a fraction of the cost of private tutors, making competitive debate a viable option for hundreds of students.',
             myRole: 'As **Founder and CEO**, I directed the academy\'s strategic growth, scaling operations across four Canadian provinces (BC, Alberta, Ontario, Quebec) and internationally to Indonesia. I developed a proprietary curriculum now used in two schools. In my capacity as **Head of Debate**, I directly mentored over 320 students and managed all international logistics for a 20-person team competing in the World Scholar\'s Cup in China and the USA, handling everything from travel and accommodations to team supervision.',
@@ -94,7 +106,6 @@ const timelineData: TimelineEvent[] = [
         description: 'Authored and published a #1 Amazon Bestseller on pharmaceutical industry corruption, earning endorsements from academics at York and Cambridge and praise from over 260+ buyers.',
         caseStudy: {
             heroImage: book,
-            // UPDATE: Using the new object structure
             galleryImages: [
                 { src: bookimg1, caption: 'Students with signed copies of the book.' },
                 { src: bookimg2, caption: 'Distributed and signed versions for students'}
