@@ -51,12 +51,12 @@ export const SafePlay = () => {
         <div className="project-section">
           <h2>Technologies Used</h2>
           <div className="tech-stack">
-            <span className="tech-tag">React</span>
-            <span className="tech-tag">TypeScript</span>
-            <span className="tech-tag">Tailwind CSS</span>
-            <span className="tech-tag">Flask</span>
-            <span className="tech-tag">Supabase</span>
-            <span className="tech-tag">Stripe</span>
+            <div className="tech-tag"><span>React</span></div>
+            <div className="tech-tag"><span>TypeScript</span></div>
+            <div className="tech-tag"><span>Tailwind CSS</span></div>
+            <div className="tech-tag"><span>Flask</span></div>
+            <div className="tech-tag"><span>Supabase</span></div>
+            <div className="tech-tag"><span>Stripe</span></div>
           </div>
         </div>
       </div>
