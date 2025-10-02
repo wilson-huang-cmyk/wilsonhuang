@@ -1,18 +1,17 @@
-import { useState, useEffect, useRef } from 'react';
-import { Bio } from './components/Bio';
-import { Timeline, type TimelineEvent } from './components/Timeline';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
-import { CaseStudy } from './components/CaseStudy';
+import { Home } from './pages/Home';
+import { Resilead } from './pages/Resilead';
+import { SafePlay } from './pages/SafePlay';
+import { RiseYouth } from './pages/RiseYouth';
+import { Research } from './pages/Research';
 
 function App() {
-  const [currentView, setCurrentView] = useState<'timeline' | 'caseStudy'>('timeline');
-  const [selectedProject, setSelectedProject] = useState<TimelineEvent | null>(null);
   const [theme, setTheme] = useState('dark');
 
-  const rightColumnRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    // Set the theme class on the body element
     document.body.className = theme === 'light' ? 'light-theme' : '';
   }, [theme]);
 
@@ -20,43 +19,28 @@ function App() {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
-  const handleNavigateToCaseStudy = (project: TimelineEvent) => {
-    setSelectedProject(project);
-    setCurrentView('caseStudy');
-    const isMobile = window.innerWidth <= 1024;
-    if (isMobile) {
-      rightColumnRef.current?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
-  const handleNavigateToTimeline = () => {
-    setCurrentView('timeline');
-    setSelectedProject(null);
-  };
-
   return (
-    <>
+    <Router>
       <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
         <span className="toggle-thumb"></span>
       </button>
-      <div className="main-layout">
-        <div className="left-column">
-          <Bio/>
-        </div>
-        <div className="right-column" ref={rightColumnRef}>
-          {currentView === 'timeline' ? (
-            <Timeline onNavigate={handleNavigateToCaseStudy} />
-          ) : (
-            selectedProject && <CaseStudy project={selectedProject} onBack={handleNavigateToTimeline} />
-          )}
+      <div className="app-layout">
+        <aside className="sidebar">
+          <Navigation />
+        </aside>
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/resilead" element={<Resilead />} />
+            <Route path="/safeplay" element={<SafePlay />} />
+            <Route path="/rise-youth" element={<RiseYouth />} />
+            <Route path="/research" element={<Research />} />
+          </Routes>
           <Footer />
-        </div>
+        </main>
       </div>
-    </>
+    </Router>
   );
 }
 
 export default App;
-
