@@ -5,19 +5,19 @@ export const Navigation = () => {
     <nav className="navigation">
       <div className="nav-links">
         <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-          Home
+          <span>Home</span>
         </NavLink>
         <NavLink to="/resilead" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-          Resilead
+          <span>Resilead</span>
         </NavLink>
         <NavLink to="/safeplay" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-          SafePlay AI
+          <span>SafePlay AI</span>
         </NavLink>
         <NavLink to="/rise-youth" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-          Rise Youth
+          <span>Rise Youth</span>
         </NavLink>
         <NavLink to="/research" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-          Research
+          <span>Research</span>
         </NavLink>
       </div>
     </nav>
